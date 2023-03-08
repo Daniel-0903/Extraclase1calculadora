@@ -50,7 +50,8 @@ public class HelloController implements Initializable {
 
 
 
-//Metodo para agregar objetos persona, asociado al boton "Agregar Persona"
+    //Metodo para agregar objetos persona, asociado al boton "Agregar Persona"
+
     @FXML
     private void Agregar(ActionEvent event) {
         if (cont < 4) {   //Valida que solo se puedan crear 4 instancias de la clase persona
@@ -87,32 +88,35 @@ public class HelloController implements Initializable {
     }
 
     @FXML
+    //metodo de resta, asociado al boton -
     private void resta(ActionEvent event) {
         int num1 = pos_edades[pers1.getItems().indexOf(pers1.getValue())];
         int num2 = pos_edades[pers2.getItems().indexOf(pers2.getValue())];
 
-        int res = num1 - num2;
+        int res = num1 - num2;   //opera con las variables creadas a las que se les extrajo su valor digitao por el usuario
 
-        this.rslt.setText(res + "");
+        this.rslt.setText(res + "");   //añade el resulatdo al TextField del resultado
     }
 
     @FXML
+    //metodo de multiplicacion, asociado al boton *
     private void multiplicacion(ActionEvent event) {
         int num1 = pos_edades[pers1.getItems().indexOf(pers1.getValue())];
         int num2 = pos_edades[pers2.getItems().indexOf(pers2.getValue())];
 
-        int mult = num1 * num2;
+        int mult = num1 * num2;  //opera con las variables creadas a las que se les extrajo su valor digitao por el usuario
 
-        this.rslt.setText(mult + "");
+        this.rslt.setText(mult + ""); //añade el resulatdo al TextField del resultado
     }
 
     @FXML
+    //metodo de division, asociado al boton /
     private void division(ActionEvent event) {
         int num1 = pos_edades[pers1.getItems().indexOf(pers1.getValue())];
         int num2 = pos_edades[pers2.getItems().indexOf(pers2.getValue())];
 
-        double div = (double) num1/num2;
+        double div = (double) num1/num2;   //opera con las variables creadas a las que se les extrajo su valor digitao por el usuario, se usa un double para que la divison sea más exacta
 
-        this.rslt.setText(div + "");
+        this.rslt.setText(div + ""); //añade el resulatdo al TextField del resultado
     }
 }
