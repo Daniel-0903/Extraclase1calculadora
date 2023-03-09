@@ -7,27 +7,31 @@ import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+/**
+ * Creacion de la clase  HelloController, en donde se realizan todas las funciones y la lógica de la calculadora
+ */
 public class HelloController implements Initializable {
     @FXML
     private ChoiceBox<String> dro;
     private String[] provincias = {"San Jose", "Heredia", "Cartago", "Alajuela", "Guanacaste", "Limon", "Puntarenas"};
 
 
-//dropdown list con las instancias cradas por el usuario:
+    //dropdown list con las instancias cradas por el usuario:
     @FXML
     private ComboBox pers1;
 
     @FXML
     private ComboBox pers2;
 
-//Textos
+    //Textos
     @FXML
     private TextField no;
     @FXML
     private TextField dd;
     @FXML
     private TextField rslt;
-//Botones
+    //Botones
     @FXML
     private Button add;
     @FXML
@@ -43,15 +47,19 @@ public class HelloController implements Initializable {
     int[] pos_edades = new int[4];  //array para tener el nombre y la edad de la insatncia en la misma posicion
 
     @Override
+    /**
+     * funcion para añadir el array de provinvias creado anteriormente al ChoiceBox
+     */
     public void initialize(URL arg0, ResourceBundle arg1) {
 
         dro.getItems().addAll(provincias);
     }
 
 
-
-    //Metodo para agregar objetos persona, asociado al boton "Agregar Persona"
-
+    /**
+     * Metodo para agregar objetos persona, asociado al boton "Agregar Persona", evita que se creen más de 4 instancias de persona y le asigna a cada objeto su nombre y edad para ser utilizados más adelante
+     * @param event
+     */
     @FXML
     private void Agregar(ActionEvent event) {
         if (cont < 4) {   //Valida que solo se puedan crear 4 instancias de la clase persona
@@ -77,46 +85,59 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    //metodo de suma, asociado al boton +
+    /**
+     * metodo de suma, asociado al boton +, añade a la variable num1 el valor almacenado en pers1 y a la variable num2, el valor almacenado en pers2
+     * opera con las variables creadas a las que se les extrajo su valor digitao por el usuario y añade el resulatdo de la suma al TextField del resultado
+     */
+
     private void suma(ActionEvent event) {
-        int num1 = pos_edades[pers1.getItems().indexOf(pers1.getValue())];  //añade a la variable num1 el valor almacenado en pers1
-        int num2 = pos_edades[pers2.getItems().indexOf(pers2.getValue())];  //añade a la variable num2 el valor almacenado en pers2
+        int num1 = pos_edades[pers1.getItems().indexOf(pers1.getValue())];
+        int num2 = pos_edades[pers2.getItems().indexOf(pers2.getValue())];
 
-        int sum = num1 + num2;   //opera con las variables creadas a las que se les extrajo su valor digitao por el usuario
+        int sum = num1 + num2;
 
-        this.rslt.setText(sum + "");   //añade el resulatdo al TextField del resultado
+        this.rslt.setText(sum + "");
     }
 
     @FXML
-    //metodo de resta, asociado al boton -
+    /**
+     * metodo de resta, asociado al boton -, añade a la variable num1 el valor almacenado en pers1 y a la variable num2, el valor almacenado en pers2
+     * opera con las variables creadas a las que se les extrajo su valor digitao por el usuario y añade el resulatdo de la resta al TextField del resultado
+     */
     private void resta(ActionEvent event) {
         int num1 = pos_edades[pers1.getItems().indexOf(pers1.getValue())];
         int num2 = pos_edades[pers2.getItems().indexOf(pers2.getValue())];
 
-        int res = num1 - num2;   //opera con las variables creadas a las que se les extrajo su valor digitao por el usuario
+        int res = num1 - num2;
 
-        this.rslt.setText(res + "");   //añade el resulatdo al TextField del resultado
+        this.rslt.setText(res + "");
     }
 
     @FXML
-    //metodo de multiplicacion, asociado al boton *
+    /**
+     * metodo de suma, asociado al boton *, añade a la variable num1 el valor almacenado en pers1 y a la variable num2, el valor almacenado en pers2
+     * opera con las variables creadas a las que se les extrajo su valor digitao por el usuario y añade el resulatdo de la multiplicacion al TextField del resultado
+     */
     private void multiplicacion(ActionEvent event) {
         int num1 = pos_edades[pers1.getItems().indexOf(pers1.getValue())];
         int num2 = pos_edades[pers2.getItems().indexOf(pers2.getValue())];
 
-        int mult = num1 * num2;  //opera con las variables creadas a las que se les extrajo su valor digitao por el usuario
+        int mult = num1 * num2;
 
-        this.rslt.setText(mult + ""); //añade el resulatdo al TextField del resultado
+        this.rslt.setText(mult + "");
     }
 
     @FXML
-    //metodo de division, asociado al boton /
+    /**
+     * metodo de suma, asociado al boton /, añade a la variable num1 el valor almacenado en pers1 y a la variable num2, el valor almacenado en pers2
+     * opera con las variables creadas a las que se les extrajo su valor digitao por el usuario y añade el resulatdo de la division al TextField del resultado
+     */
     private void division(ActionEvent event) {
         int num1 = pos_edades[pers1.getItems().indexOf(pers1.getValue())];
         int num2 = pos_edades[pers2.getItems().indexOf(pers2.getValue())];
 
-        double div = (double) num1/num2;   //opera con las variables creadas a las que se les extrajo su valor digitao por el usuario, se usa un double para que la divison sea más exacta
+        double div = (double) num1/num2;
 
-        this.rslt.setText(div + ""); //añade el resulatdo al TextField del resultado
+        this.rslt.setText(div + "");
     }
 }

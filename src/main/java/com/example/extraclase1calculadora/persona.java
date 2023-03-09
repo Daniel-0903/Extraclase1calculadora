@@ -1,5 +1,10 @@
 package com.example.extraclase1calculadora;
 //Crea la clase persona
+
+/**
+ * Se crea la clase persona, sus atributos son nombre, edad  y provincia.
+   Se le  añade un constructor para permitir crear las instancias y los metodos set y get.
+ */
 public class persona {
     private String nombre;
     private int edad;
